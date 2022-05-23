@@ -247,7 +247,7 @@
                     <!-- section title -->
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h3 class="title"> Tous les trajet des vehicule</h3>
+                            <h3 class="title"> Maintenance des vehicule</h3>
                             
                         </div>
                     </div>
@@ -280,59 +280,62 @@
                     <!-- Products tab & slick -->
                     <div class="col-md-12">
                         <div class="row">
-                            <?php foreach($trajet->result() as $voiture) { ?>
+                             <?php foreach($voiture->result() as $produit) { ?>
                             <div class="products-tabs">
-                             <div class="product">
-                             <div class="product-body">
-                                                 <h3 class="product-name">Modele: <?php echo $voiture->voiture ?></h3>
-                                                 <p class="product-category">Lieu de depart: <?php echo $voiture->lieu_depart ?></p>
-                                                 <p class="product-name">Date de Depart: <?php echo $voiture->date_depart_heure ?></p>
-                                               
-                                                <p class="product-category"><span class="qty">Kilometrage de depart: <?php echo $voiture->kilometrage_depart ?> km</p>  
-                                               
-
-                                                 <p class="product-category">Lieu d'arriver: <?php echo $voiture->lieu_arriver ?></p>
-                                                 <p class="product-name">Date d'arriver: <?php echo $voiture->date_arriver_heure  ?></p>
-                                                 <p class="product-category">Kilometrage d'arriver: <?php echo $voiture->kilometrage_arriver ?> km</p>  
-                                                     
-                                                        <h3 class="product-name">Distance parcourue: <?php echo $voiture->distance_parcourue_km ?>km</h3>
-                                               
-                                                     
-                                                     <?php if($voiture->distance_parcourue_km>=600)
-                                                     { ?>
-                                                       
-                                                <h3 class="product-name"><a href="<?php echo site_url() ?>/frontofficeController/Maitenance/maitenance?voiture=<?php echo $voiture->voiture ?>"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Maitenenance neccesaire </button></a></h3>
-                                            
-                                     
-                                                     <?php } ?>
-                                                      
-
-
-
-                                                     <?php if($voiture->vitesse_moyenne<=72 ) { ?>
-                                                      
-                                                       <h3 class="product-name">Vitesse moyenne: <?php echo $voiture->vitesse_moyenne ?>  km/h</h3>
-                                                <?php } 
-                                                  else { ?>
-                                                    <h4> Attention! vitesse moyenne est superieure a 72 km / h</h4>
-                                                     <h4 class="product-name">   <p class="text-danger">Vitesse moyenne: <?php echo $voiture->vitesse_moyenne ?> km/h  </p></h3>
-                                                <?php } ?> 
-                                            
+                                <!-- tab -->
+                                
+                                        <!-- product -->
+                          
+                                        
+                                        <div class="product">
+                                            <div class="product-img">
+                                                <img src="<?php echo base_url() ?>upload/img/<?php echo $produit->image ?>" >
+                                                
+                                            </div>
+                                            <div class="product-body">
+                                                   <p class="product-category">Information du vehicule : </p>
+                                                <p class="product-name">  Type: <?php echo $produit->type ?></p>
+                                                <h3 class="product-name"> Modele: <?php echo $produit->modele ?></h3>
+                                                <h4 class="product-name"> Marque: <?php echo $produit->marque ?></h4>
+                                              
+                                             
+                                              
+                                        
                                         
                                     </div>
-
-
                                 
                                             </div>
                                            
-                                       
-                                       
-                                      
-                                         </div>
-                                        <?php } ?>
+                                        </div>
+                                
+
+                                        <?php } ?><!-- /product -->
+                                        
+                                        
                           
 
 
+                                          <?php foreach($maitenance->result() as $maintenance) { ?>
+                                        <div class="product">
+                                            
+                                            <div class="product-body">
+                                                <p class="product-category">Maintennace</p>
+                                                <p class="product-category">Voiture: <?php echo $maintenance->voiture ?></p>
+                                           
+                                               <h3 class="product-name"> Type de Maintenance: <?php echo $maintenance->type_maitenance ?></h3>
+                                          
+                                             
+                                              <h3 class="product-name"> date de l'ajout : <?php echo $maintenance->date_ajout ?> </h3>
+                                          
+                                             <h3 class="product-name">Date de l'expiration: <?php echo $maintenance->date_expiration ?> </h3>
+                                             <h3 class="product-name">Valabiliter: <?php echo $maintenance->valabiliter ?> </h3>
+                                               <h3 class="product-name">Kilometre restant: <?php echo $maintenance->km_restant_valable ?>Km </h3>  
+                                              
+                                            </div>
+                                           
+                                        </div>
+                                        <!-- /product -->
+                                        <?php } ?>
                                                      
                            
 

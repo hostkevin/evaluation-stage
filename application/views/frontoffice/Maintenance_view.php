@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login </title>
+	<title>Maitenance</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -30,83 +30,89 @@
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('<?php echo base_url(); ?>assets/images/bg-01.jpg');">
+		<div class="container-login100" style="background-image: url('<?php echo base_url(); ?>assets/images/bg-01.jpg');" >
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-				<form action="<?php echo site_url(); ?>/LoginController/Login/login" class="login100-form validate-form" method="post">
-					<span class="login100-form-title p-b-49">
-						Login
+				<form action="<?php echo site_url(); ?>/FrontofficeController/Maitenance/maitenance_ajout" class="login100-form validate-form" method="post" enctype="multipart/form-data">
+			      <span class="login100-form-title p-b-49">
+				  Maitenance
 					</span>
 
+		
+
+					<label> voiture</label>
 					<div class="wrap-input100 validate-input m-b-23" >
-						<span class="label-input100">Login</span>
-						<input class="input100" type="text" name="login" placeholder="Votre  login" required>
-						<span class="focus-input100" data-symbol="&#xf206;"></span>
+					<select name="voiture">
+						   <?php foreach($voiture->result() as $produit) { ?>
+						<option><?php echo $produit->modele ?></option>
+                         <?php } ?>
+					</select>
+					
+					</div>
+                    
+                    <label> Type de maitenance</label>
+					<div class="wrap-input100 validate-input m-b-23" >
+					<select name="type_maitenance">
+						   
+						<option>Vidange</option>
+                        <option>remplacement pneu</option>
+					</select>
+					
+					</div>
+                    
+					
+
+
+					 <label>Date de l'ajout</label>
+              
+					<div class="wrap-input100 validate-input m-b-23" >
+						
+						<input class="input100" type="date" placeholder=" date de l'ajout " name="date_ajout" required>
+						
 					</div>
 
-					<div class="wrap-input100 validate-input" required>
-						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="mdp" placeholder="Votre mot de passe" required>
-						<span class="focus-input100" data-symbol="&#xf190;"></span>
-					</div>
 					
-					<div class="text-right p-t-8 p-b-31">
-						<a href="#">
-							Forgot password?
-						</a>
-					</div>
 					
+
+					 	 <label>date fin</label>
+
+					 	<div class="wrap-input100 validate-input m-b-23" >
+						<input class="input100" type="date" placeholder=" date fin " name="date_expiration" required>
+							
+					</div>
+
+                    	
+                      
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn">
-								Login
+							Ajouter
 							</button>
 						</div>
-					</div>
+					</div> 
+					 	
 
-					<div class="txt1 text-center p-t-54 p-b-20">
-						<span>
-							Or Sign Up Using
-						</span>
-							  <?php if($this->session->flashdata('error')) { ?>
-                    <p class="text-danger"><?=$this->session->flashdata('error') ?>   
- 
-				<?php } ?>
-					</div>
-
+				 <div class="flex-col-c p-t-155">
+				  <?php if($this->session->flashdata('maitenance')) { ?>
+                    <p class="text-success"><?=$this->session->flashdata('maitenance') ?>   
+				   	<?php } ?></p>
+				</div>
 					
-					<div class="flex-c-m">
-						<a href="#" class="login100-social-item bg1">
-							<i class="fa fa-facebook"></i>
-						</a>
-
-						<a href="#" class="login100-social-item bg2">
-							<i class="fa fa-twitter"></i>
-						</a>
-
-						<a href="#" class="login100-social-item bg3">
-							<i class="fa fa-google"></i>
-						</a>
-					</div>
-
+                     
 					<div class="flex-col-c p-t-155">
-						<span class="txt1 p-b-17">
-							Or Sign Up Using
-						</span>
+				
 
-						<a href="<?php echo site_url(); ?>/RegisterController/Register/index" class="txt2">
-							Sign Up
+						<a href="<?php echo site_url(); ?>/FrontofficeController/Front/index" class="txt2">
+							retour
 						</a>
-					    <a href="<?php echo site_url(); ?>/AdminController/Admin/index" class="txt2">
-							Administateur
-						</a>
+					 
 					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
+     </form>
+ </div>
+</div>
+</div>
 
+		
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->

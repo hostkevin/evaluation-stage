@@ -37,6 +37,10 @@ function echeance($voiture){
 
 }
 
+function allVoiture(){
+    return $this->db->get('voiture');
+}
+
 function trajet_voiture($voiture){
     $this->db->select('*');
     $this->db->from('trajet');
@@ -47,6 +51,31 @@ function trajet_voiture($voiture){
 
 function AllTrajet(){
     return $this->db->get('trajet');
+}
+
+function maitenance_voiture($voiture){
+    $this->db->select('*');
+    $this->db->from('voiture');
+    $this->db->where('modele',$voiture);
+    $query=$this->db->get();
+    return $query;
+}
+
+function getdistance_parcourue($voiture){
+     $this->db->select('*');
+    $this->db->from('trajet');
+    $this->db->where('voiture',$voiture);
+    $query=$this->db->get();
+    return $query;
+}
+
+function inserer_maintenance($data){
+     $this->db->insert('maitenance',$data); 
+
+}
+function all_maintenance(){
+    return $this->db->get('maitenance');
+
 }
 }
 ?>

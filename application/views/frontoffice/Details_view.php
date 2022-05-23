@@ -295,17 +295,12 @@
                                                 </div>
                                             </div>
                                             <div class="product-body">
-                                                <p class="product-category">Type:<?php echo $produit->type ?></p>
-                                                <h3 class="product-name"><a href="#">Modele: <?php echo $produit->modele ?></a></h3>
-                                                <h4 class="product-price"><span class="qty">Marque: <?php echo $produit->marque ?></h3></span>
+                                                   <p class="product-category">Information du vehicule : </p>
+                                                <p class="product-name">  Type: <?php echo $produit->type ?></p>
+                                                <h3 class="product-name"> Modele: <?php echo $produit->modele ?></h3>
+                                                <h4 class="product-name"> Marque: <?php echo $produit->marque ?></h3>
                                               
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
+                                             
                                               
                                         
                                         
@@ -328,10 +323,16 @@
                                             <div class="product-body">
                                                 <p class="product-category">Echeance</p>
                                                 <p class="product-category">Voiture: <?php echo $echeance->voiture ?></p>
-                                                <h3 class="product-name"><a href="#">durrer de l'echeance: <?php echo $echeance->nbjours ?> jours</a></h3>
-                                                <h3 class="product-name"><span class="qty">Date de debut: <?php echo $echeance->date_debut ?> </h3>
-                                                <h3 class="product-name"><span class="qty">Date de fin: <?php echo $echeance->date_expirer ?> </h3>
-                                                <h3 class="product-price"><span class="qty">type de l'echeance: <?php echo $echeance->type ?> </h3>
+                                                <?php if($echeance->nbjours<=15) { ?>
+                                               <h3 class="product-name"> durrer de l'echeance: <p class="text-danger"><?php echo $echeance->nbjours ?> jours</p></h3>
+                                                <?php }else {  ?>
+                                             
+                                              <h3 class="product-name"> durrer de l'echeance:  <h3 class="text-success"> <?php echo $echeance->nbjours ?> jours </h3></h3>
+                                                
+                                               <?php } ?>
+                                                <h3 class="product-name">Date de debut: <?php echo $echeance->date_debut ?> </h3>
+                                                <h3 class="product-name">Date de fin: <?php echo $echeance->date_expirer ?> </h3>
+                                                <h3 class="product-name">type de l'echeance: <?php echo $echeance->type ?> </h3>
                                                 
                                               
                                             </div>
@@ -443,7 +444,7 @@
                             </ul>
                             <span class="copyright">
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> Kevin Razafimaharo <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </span>
                         </div>

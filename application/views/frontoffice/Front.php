@@ -174,9 +174,10 @@
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="<?php echo site_url(); ?>/frontofficeController/Front/trajet_view">Inserer un trajet</a></li>
                         <li><a href="<?php echo site_url(); ?>/Echeance/index">Inserer une Echeance</a></li>
-                          <li><a href="<?php echo site_url(); ?>/LoginController/Login/deconnexion_utilisateur">Deconnexion</a></li>
-                          <li><a href="<?php echo site_url(); ?>/frontofficeController/Garage/index">Garage</a></li>
-                           <li><a href="<?php echo site_url(); ?>/frontofficeController/Front/alltrajet"> trajet des vehicules</a></li>
+                        <li><a href="<?php echo site_url(); ?>/LoginController/Login/deconnexion_utilisateur">Deconnexion</a></li>
+                        <li><a href="<?php echo site_url(); ?>/frontofficeController/Garage/index">Garage</a></li>
+                        <li><a href="<?php echo site_url(); ?>/frontofficeController/Front/alltrajet"> trajet des vehicules</a></li>
+                        <li><a href="<?php echo site_url(); ?>/frontofficeController/Front/maintenance_view"> Maintenance des vehicules</a></li>
                     </ul>
                     <!-- /NAV -->
                 </div>
@@ -436,7 +437,7 @@
                             </ul>
                             <span class="copyright">
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script>  <i class="fa fa-heart-o" aria-hidden="true"></i> by Kevin Razafimaharo
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </span>
                         </div>

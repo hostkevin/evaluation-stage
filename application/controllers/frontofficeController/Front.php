@@ -143,9 +143,6 @@ function recherche(){
 }
 
 
-function recherche_avancer(){
-   $query1=$this->input->post('recherche');
-}
 
 
 
@@ -158,6 +155,13 @@ function alltrajet(){
    $this->load->view('frontoffice/All_trajet_view',$data);
 }
 
+
+
+function maintenance_view(){
+  $this->load->model('Frontoffice_model');
+  $data=array( 'maitenance'=>$this->Frontoffice_model->all_maintenance(),'voiture'=>$this->Frontoffice_model->allVoiture());
+  $this->load->view('frontoffice/Vehicule_en_maitenance',$data);
+}
 
 
 
