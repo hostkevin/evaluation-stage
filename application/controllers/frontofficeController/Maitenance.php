@@ -11,9 +11,11 @@ class Maitenance extends CI_Controller{
 
 function maitenance(){
 	$voiture=$this->input->get('voiture');
-    $this->load->model('Frontoffice_model');    
-    $data=array('voiture'=>$this->Frontoffice_model->maitenance_voiture($voiture));
-    $this->load->view('frontoffice/Maintenance_view',$data);
+  $maintenance="en maintenance";
+  $this->load->model('Frontoffice_model');    
+  $data=array('voiture'=>$this->Frontoffice_model->maitenance_voiture($voiture));
+  $query2=$this->Frontoffice_model->en_maintenance($voiture,$maintenance); 
+  $this->load->view('frontoffice/Maintenance_view',$data);
 }
 
 
@@ -50,6 +52,9 @@ function maitenance_ajout(){
  
        $nbjours=$this->dateDiffInDays($date_ajout, $date_expiration);
  
+       $maintenance="maintenance terminer !";
+
+
        if($type_maitenance=='remplacement pneu'){
         $km_restant_valable=2000;
 
@@ -68,6 +73,7 @@ function maitenance_ajout(){
    $maitenance=$this->Frontoffice_model->inserer_maintenance($data);
    $this->session->set_flashdata('maitenance','maintenance terminer !');
   $query=array('voiture'=>$this->Frontoffice_model->maitenance_voiture($data['voiture']));
+  $query2=$this->Frontoffice_model->maintenance_terminer($data['voiture'],$maintenance);
     $this->load->view('frontoffice/Maintenance_view',$query);
 
   

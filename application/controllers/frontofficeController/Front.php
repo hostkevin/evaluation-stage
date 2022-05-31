@@ -84,10 +84,10 @@ function ajouter_trajet()
          
           $distance['distance_km']=$this->distanceParcourue($data['kilometrage_depart'],$data['kilometrage_arriver']);
           
-         $heure['heure_parcourue']=$this->heureParcourue($data['date_depart_heure'],$data['date_arriver_heure']);
-          
-          
-          $data['heure_parcourue']=$this->HeureEnSeconde($heure['heure_parcourue']);
+          $heure['heure_parcourue']=$this->heureParcourue($data['date_depart_heure'],$data['date_arriver_heure']);
+          $data['heure_parcourue']=$heure['heure_parcourue']; 
+        
+          $data['seconde_parcourue']=$this->HeureEnSeconde($data['heure_parcourue']);
           
          
           $data['distance_parcourue_km']=$distance['distance_km'];
@@ -95,13 +95,13 @@ function ajouter_trajet()
            
          
         
-          $data['vitesse_moyenne']=$this->vitesseMoyenne($data['distance_parcourue'],$data['heure_parcourue']);
+          $data['vitesse_moyenne']=$this->vitesseMoyenne($data['distance_parcourue'],$data['seconde_parcourue']);
 
 
 
           $data['montant']=$this->input->post('montant');
           $data['quantiter']=$this->input->post('quantiter');  
-        
+          $data['maintenance']="pas encore en maintenance";
           
          $data['motif']=$this->input->post('motif');  
          $message=" non disponible";
@@ -121,7 +121,7 @@ function ajouter_trajet()
 
 
 function voirlesdetails(){
-      $this->load->model('Frontoffice_model');
+     $this->load->model('Frontoffice_model');
      $id=$this->input->get('id');
      $voiture=$this->input->get('voiture');
      $details=array('id'=>$this->Frontoffice_model->details_produit($id),

@@ -1,3 +1,4 @@
+<?php $row=null; ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -74,12 +75,7 @@
                         <div class="col-md-6">
                             <div class="header-search">
                                 <form action="<?php echo site_url() ?>/frontofficeController/Front/recherche" method="post">
-                                    <select name="Category" class="input-select">
-                                           <?php foreach($type->result() as $type) { ?>
-                                        <option ><?php echo $type->type ?></option>
-                                        
-                                      <?php } ?>
-                                    </select>
+                                  
                                     <input class="input" placeholder="Search here" name="recherche">
                                     <button class="search-btn">Search</button>
                                 </form>
@@ -239,8 +235,10 @@
                 <div class="row">
           <div class="col-md-12">
                         <div class="section-title">
-                            <h3 class="title">Vehicule</h3>
-                            
+                        
+                             
+                            <h3 class="title"> RESULTAT(S) DE VOTRE RECHERCHE :     </h3>
+                          
                         </div>
                     </div>
                    
@@ -253,7 +251,13 @@
                                 <div id="tab1" class="tab-pane active">
                                    <div class="products-slick" data-nav="#slick-nav-1">
                                         <!-- product -->
+                                               
+                                    
+                                             <?php $row=$search->num_rows();?> 
+                                            
+                                             <?php if($row>0){ ?>
                                         <?php foreach($search->result() as $produit) { ?>
+                               
                                         <div class="product">
                                             <div class="product-img">
                                                 <img src="<?php echo base_url() ?>upload/img/<?php echo $produit->image ?>" alt="">
@@ -281,8 +285,8 @@
                                         </div>
                                         <?php } ?>
                                         <!-- /product -->
-
-                                     
+                                        <?php }  ?>
+                                       
                                     </div>
                                     <div id="slick-nav-1" class="products-slick-nav"></div>
                                 </div>

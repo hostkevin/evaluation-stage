@@ -280,36 +280,7 @@
                     <!-- Products tab & slick -->
                     <div class="col-md-12">
                         <div class="row">
-                             <?php foreach($voiture->result() as $produit) { ?>
-                            <div class="products-tabs">
-                                <!-- tab -->
-                                
-                                        <!-- product -->
-                          
-                                        
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="<?php echo base_url() ?>upload/img/<?php echo $produit->image ?>" >
-                                                
-                                            </div>
-                                            <div class="product-body">
-                                                   <p class="product-category">Information du vehicule : </p>
-                                                <p class="product-name">  Type: <?php echo $produit->type ?></p>
-                                                <h3 class="product-name"> Modele: <?php echo $produit->modele ?></h3>
-                                                <h4 class="product-name"> Marque: <?php echo $produit->marque ?></h4>
-                                              
-                                             
-                                              
-                                        
-                                        
-                                    </div>
-                                
-                                            </div>
-                                           
-                                        </div>
-                                
-
-                                        <?php } ?><!-- /product -->
+                             
                                         
                                         
                           
@@ -328,7 +299,7 @@
                                               <h3 class="product-name"> date de l'ajout : <?php echo $maintenance->date_ajout ?> </h3>
                                           
                                              <h3 class="product-name">Date de l'expiration: <?php echo $maintenance->date_expiration ?> </h3>
-                                             <h3 class="product-name">Valabiliter: <?php echo $maintenance->valabiliter ?> </h3>
+                                             <h3 class="product-name">Valabiliter: <?php echo $maintenance->valabiliter ?> jours </h3>
                                                <h3 class="product-name">Kilometre restant: <?php echo $maintenance->km_restant_valable ?>Km </h3>  
                                               
                                             </div>

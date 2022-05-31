@@ -77,5 +77,17 @@ function all_maintenance(){
     return $this->db->get('maitenance');
 
 }
+
+function en_maintenance($voiture,$mess){
+     $query=$this->db->query("UPDATE trajet SET maintenance='$mess' where voiture='".$voiture."'");
+         return $query;
+}
+
+function maintenance_terminer($voiture,$mess){
+     $query=$this->db->query("UPDATE trajet SET maintenance='$mess' where voiture='".$voiture."'");
+         return $query;
+}
+
+
 }
 ?>

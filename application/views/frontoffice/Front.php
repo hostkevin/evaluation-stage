@@ -64,7 +64,7 @@
                         <div class="col-md-3">
                             <div class="header-logo">
                                 <a href="#" class="logo">
-                                    <img src="./img/logo.png" alt="">
+                                    <img src="<?php echo base_url() ?>front/img/logo.png" alt="">
                                 </a>
                             </div>
                         </div>
@@ -74,13 +74,8 @@
                         <div class="col-md-6">
                             <div class="header-search">
                                 <form action="<?php echo site_url() ?>/frontofficeController/Front/recherche" method="post">
-                                    <select name="Category" class="input-select">
-                                           <?php foreach($voiture_type->result() as $type) { ?>
-                                        <option ><?php echo $type->type ?></option>
-                                        
-                                      <?php } ?>
-                                    </select>
-                                    <input class="input" placeholder="Search here" name="recherche">
+                                   
+                                    <input class="input" placeholder="Search here" name="recherche" required>
                                     <button class="search-btn">Search</button>
                                 </form>
                             </div>
@@ -91,22 +86,12 @@
                         <div class="col-md-3 clearfix">
                             <div class="header-ctn">
                                 <!-- Wishlist -->
-                                <div>
-                                    <a href="#">
-                                        <i class="fa fa-heart-o"></i>
-                                        <span>Your Wishlist</span>
-                                        <div class="qty">2</div>
-                                    </a>
-                                </div>
+                                
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        <span>Your Cart</span>
-                                        <div class="qty">3</div>
-                                    </a>
+                                    
                                     <div class="cart-dropdown">
                                         <div class="cart-list">
                                             <div class="product-widget">

@@ -290,15 +290,14 @@
                                             <div class="product-img">
                                                 <img src="<?php echo base_url() ?>upload/img/<?php echo $produit->image ?>" alt="">
                                                 <div class="product-label">
-                                                    <span class="sale">-30%</span>
-                                                    <span class="new">NEW</span>
+                                                   
                                                 </div>
                                             </div>
                                             <div class="product-body">
                                                    <p class="product-category">Information du vehicule : </p>
                                                 <p class="product-name">  Type: <?php echo $produit->type ?></p>
                                                 <h3 class="product-name"> Modele: <?php echo $produit->modele ?></h3>
-                                                <h4 class="product-name"> Marque: <?php echo $produit->marque ?></h3>
+                                                <h4 class="product-name"> Marque: <?php echo $produit->marque ?></h4>
                                               
                                              
                                               
@@ -341,7 +340,31 @@
                                         <!-- /product -->
                                         <?php } ?>
                                                      
-                           
+                                          <?php foreach($trajet->result() as $trajet) { ?>
+                                        <div class="product">
+                                            
+                                            <div class="product-body">
+                                                <p class="product-category">Trajet</p>
+                                                <p class="product-category"> <?php echo $trajet->voiture ?></p>
+                                                 <p class="product-category">Lieu de depart: <?php echo $voiture->lieu_depart ?></p>
+                                                 <p class="product-name">Date de Depart: <?php echo $voiture->date_depart_heure ?></p>
+                                               
+                                                <p class="product-category"><span class="qty">Kilometrage de depart: <?php echo $voiture->kilometrage_depart ?> km</p>  
+                                               
+
+                                                 <p class="product-category">Lieu d'arriver: <?php echo $voiture->lieu_arriver ?></p>
+                                                 <p class="product-name">Date d'arriver: <?php echo $voiture->date_arriver_heure  ?></p>
+                                                 <p class="product-category">Kilometrage d'arriver: <?php echo $voiture->kilometrage_arriver ?> km</p>  
+                                                     
+                                                           <h3 class="product-name">Duree du trajet: <?php echo $voiture->heure_parcourue ?> heure</h3>
+                                                        <h3 class="product-name">Distance parcourue: <?php echo $voiture->distance_parcourue_km ?>km</h3>
+                                              
+                                            </div>
+                                           
+                                        </div>
+                                        <!-- /product -->
+                                        <?php } ?>
+                                                     
 
                                         <!-- /product -->
                                     </div>
@@ -354,7 +377,7 @@
                 <!-- /row -->
             </div>
             <!-- /container -->
-        </div>
+      
         <!-- /SECTION -->
        
         

@@ -70,42 +70,18 @@
                         </div>
                         <!-- /LOGO -->
 
-                        <!-- SEARCH BAR -->
-                        <div class="col-md-6">
-                            <div class="header-search">
-                                <form>
-                                    <select class="input-select">
-                                        <option value="0">All Categories</option>
-                                        <option value="1">Category 01</option>
-                                        <option value="1">Category 02</option>
-                                    </select>
-                                    <input class="input" placeholder="Search here">
-                                    <button class="search-btn">Search</button>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- /SEARCH BAR -->
+                       
 
                         <!-- ACCOUNT -->
                         <div class="col-md-3 clearfix">
                             <div class="header-ctn">
                                 <!-- Wishlist -->
-                                <div>
-                                    <a href="#">
-                                        <i class="fa fa-heart-o"></i>
-                                        <span>Your Wishlist</span>
-                                        <div class="qty">2</div>
-                                    </a>
-                                </div>
+                               
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        <span>Your Cart</span>
-                                        <div class="qty">3</div>
-                                    </a>
+                                  
                                     <div class="cart-dropdown">
                                         <div class="cart-list">
                                             <div class="product-widget">
@@ -171,8 +147,6 @@
                     <!-- NAV -->
                     <ul class="main-nav nav navbar-nav">
                         <li class="active"><a href="<?php echo site_url(); ?>/frontofficeController/Front/index">Home</a></li>
-                        <li><a href="<?php echo site_url(); ?>/frontofficeController/Front/trajet_view">Trajet</a></li>
-                        <li><a href="<?php echo site_url(); ?>/Echeance/index">Echeance</a></li>
                           <li><a href="<?php echo site_url(); ?>/LoginController/Login/deconnexion_utilisateur">Deconnexion</a></li>
                     </ul>
                     <!-- /NAV -->
@@ -284,7 +258,7 @@
                             <div class="products-tabs">
                              <div class="product">
                              <div class="product-body">
-                                                 <h3 class="product-name">Modele: <?php echo $voiture->voiture ?></h3>
+                                                 <h3 class="product-name"> <?php echo $voiture->voiture ?></h3>
                                                  <p class="product-category">Lieu de depart: <?php echo $voiture->lieu_depart ?></p>
                                                  <p class="product-name">Date de Depart: <?php echo $voiture->date_depart_heure ?></p>
                                                
@@ -295,26 +269,32 @@
                                                  <p class="product-name">Date d'arriver: <?php echo $voiture->date_arriver_heure  ?></p>
                                                  <p class="product-category">Kilometrage d'arriver: <?php echo $voiture->kilometrage_arriver ?> km</p>  
                                                      
+                                                           <h3 class="product-name">Duree du trajet: <?php echo $voiture->heure_parcourue ?> heure</h3>
                                                         <h3 class="product-name">Distance parcourue: <?php echo $voiture->distance_parcourue_km ?>km</h3>
                                                
                                                      
                                                      <?php if($voiture->distance_parcourue_km>=600)
                                                      { ?>
                                                        
+                                                         <?php if($voiture->maintenance!="maintenance terminer !") { ?>
+
                                                 <h3 class="product-name"><a href="<?php echo site_url() ?>/frontofficeController/Maitenance/maitenance?voiture=<?php echo $voiture->voiture ?>"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Maitenenance neccesaire </button></a></h3>
                                             
-                                     
-                                                     <?php } ?>
-                                                      
+                                                      <?php }  else{
+                                                      ?>
+                                                       <p class="product-category"> <?php echo $voiture->maintenance ?></p>
 
+                                                      <?php } ?>
+                                                      
+                                                       <?php } ?>
 
 
                                                      <?php if($voiture->vitesse_moyenne<=72 ) { ?>
                                                       
-                                                       <h3 class="product-name">Vitesse moyenne: <?php echo $voiture->vitesse_moyenne ?>  km/h</h3>
+                                                       <h3 class="product-name"><p class="text-success">Vitesse moyenne: <?php echo $voiture->vitesse_moyenne ?>  km/h</p></h3>
                                                 <?php } 
                                                   else { ?>
-                                                    <h4> Attention! vitesse moyenne est superieure a 72 km / h</h4>
+                                                    <h4> Attention! vitesse moyenne  superieure a 72 km / h</h4>
                                                      <h4 class="product-name">   <p class="text-danger">Vitesse moyenne: <?php echo $voiture->vitesse_moyenne ?> km/h  </p></h3>
                                                 <?php } ?> 
                                             
